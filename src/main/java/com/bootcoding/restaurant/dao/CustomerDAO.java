@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class CustomerDAO {
-    public static final String TABLE_NAME = "customer";
+    public static final String TABLE_NAME = " app_customer";
     public void createTable(){
         try {
             //1. Load JDBC Driver
@@ -22,6 +22,19 @@ public class CustomerDAO {
             //4.execute query(statement)
             //TODO - Create Table Query
             String sql = "Select * from " +  TABLE_NAME;
+            String query = "CREATE TABLE IF  NOT EXISTS " + TABLE_NAME
+                    + " ( id bigint NOT NULL , "
+                    + " name text,"
+                    + " address text,"
+                    + " phone_number bigint, "
+                    + " city text, "
+                    + " state text, "
+                    + " email_id text, "
+                    + " CONSTRAINT app_customer_pk PRIMARY KEY (id))";
+
+            System.out.println(" Create Table Query : " + query);
+            stmt.executeUpdate(query);
+
             ResultSet rs = stmt.executeQuery(sql);
 
             //5.traverse resultset (data)
