@@ -2,9 +2,13 @@ package com.bootcoding.restaurant.app;
 
 import com.bootcoding.restaurant.Customer;
 import com.bootcoding.restaurant.Order;
+import com.bootcoding.restaurant.OrderMenuItem;
+import com.bootcoding.restaurant.dao.CustomerDAO;
+import com.bootcoding.restaurant.dao.OrderDAO;
+import com.bootcoding.restaurant.dao.OrderMenuItemDAO;
+import com.bootcoding.restaurant.dao.VendorDAO;
 import com.bootcoding.restaurant.vendor;
 
-import java.security.spec.RSAOtherPrimeInfo;
 import java.util.Date;
 
 public class Application {
@@ -53,5 +57,16 @@ public class Application {
         System.out.println("Orer Date : " + order.getOrderDate());
         System.out.println("Order Delivery Address : " + order.getDeliveryAddress());
 
+        CustomerDAO customerDAO = new CustomerDAO();
+        customerDAO.createTable();
+
+        VendorDAO vendorDAO = new VendorDAO();
+        vendorDAO.createTable();
+
+        OrderDAO orderDAO = new OrderDAO();
+        orderDAO.crateTable();
+
+        OrderMenuItemDAO orderMenuItemDAO = new OrderMenuItemDAO();
+        orderMenuItemDAO.createTable();
     }
 }
